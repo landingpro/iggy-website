@@ -1,0 +1,8 @@
+# Ignore local build artifacts
+/build
+/.cache
+/.docusaurus
+
+# Ignore system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,17 @@
+publish:
+  whoami: asf-site
+github:
+  description: "Apache Iggy (Incubating) Website"
+  homepage: https://iggy.apache.org/
+  labels:
+    - iggy
+    - apache
+  enabled_merge_buttons:
+    squash:  true
+    merge:   false
+    rebase:  false
+notifications:
+  commits: commits@iggy.apache.org
+  issues: dev@iggy.apache.org
+  pullrequests: dev@iggy.apache.org
+  discussions: dev@iggy.apache.org
