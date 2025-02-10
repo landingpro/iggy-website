@@ -21,7 +21,8 @@ jobs:
         run: |
           npm run build
       - name: Copy ASF config
-        run: cp .asf.yaml build/.asf.yaml
+        run: |
+          cp .asf.yaml build/.asf.yaml
 
       - name: Deploy to asf-site
         run: |
