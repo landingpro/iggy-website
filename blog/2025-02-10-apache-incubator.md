@@ -9,12 +9,6 @@ tags: []
 hide_table_of_contents: false
 date: 2025-02-10
 ---
-+++
-title = "Iggy joins the Apache Incubator"
-date = "2025-02-10"
-author = "Piotr Gankiewicz"
-+++
-
 We are thrilled to announce that **Iggy** has officially joined the **[Apache Incubator](https://incubator.apache.org/)**! This marks a major milestone in our journey to redefine message streaming — one that is **blazingly fast, hyper-efficient, and built for the future**. Since the very first day, **Iggy was always meant to be a truly FOSS project** — not just open-source in name, but deeply rooted in the values of transparency, collaboration, and community-driven innovation.
 
 ## 🚀 A Journey Two Years in the Making
