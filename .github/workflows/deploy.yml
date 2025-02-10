@@ -17,32 +17,19 @@ jobs:
         run: |
           npm install
 
-      - name: Build Iggy Website
+      - name: Build Apache Iggy Website
         run: |
           npm run build
 
       - name: Copy ASF config
         run: |
           cp .asf.yaml build/.asf.yaml  # Ensure .asf.yaml is inside build directory
-          ls -la build/  # Debugging step to confirm file is present
 
-      - name: Deploy to asf-site
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git checkout --orphan asf-site
-          git rm -rf .
-          mv build/* .
-          ls -la #debugging for .asf.yaml file
-          rm -rf build
-          ls -la #debugging for .asf.yaml file
-
-          # Ensure .asf.yaml is present before commit
-          if [ ! -f ".asf.yaml" ]; then
-            echo "ERROR: .asf.yaml is missing!"
-            exit 1
-          fi
-
-          git add .
-          git commit -m "Deploy updated Apache Iggy site"
-          git push --force origin asf-site
+      # Publish to asf-site for production
+      - name: Publish Iggy Website to asf-site
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: asf-site
