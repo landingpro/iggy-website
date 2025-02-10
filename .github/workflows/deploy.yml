@@ -1,4 +1,4 @@
-name: Deploy Apache Iggy Website to asf-site
+name: Deploy Apache Iggy Website
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -17,9 +17,11 @@ jobs:
         run: |
           npm install
 
-      - name: Build Docusaurus
+      - name: Build Iggy Website
         run: |
           npm run build
+      - name: Copy ASF config
+        run: cp .asf.yaml build/.asf.yaml
 
       - name: Deploy to asf-site
         run: |
