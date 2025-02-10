@@ -20,9 +20,10 @@ jobs:
       - name: Build Iggy Website
         run: |
           npm run build
+
       - name: Copy ASF config
         run: |
-          cp .asf.yaml build/.asf.yaml
+          cp .asf.yaml build/.asf.yaml  # Ensure .asf.yaml is inside build directory
 
       - name: Deploy to asf-site
         run: |
@@ -32,6 +33,13 @@ jobs:
           git rm -rf .
           mv build/* .
           rm -rf build
+
+          # Ensure .asf.yaml is present before commit
+          if [ ! -f ".asf.yaml" ]; then
+            echo "ERROR: .asf.yaml is missing!"
+            exit 1
+          fi
+          
           git add .
           git commit -m "Deploy updated Apache Iggy site"
           git push --force origin asf-site
