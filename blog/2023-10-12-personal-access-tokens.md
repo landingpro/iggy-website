@@ -3,7 +3,7 @@ title: Personal access tokens
 slug: personal-access-tokens
 authors:
   - name: Piotr Gankiewicz
-    title: Iggy.rs founder
+    title: Apache Iggy founder
     url: https://github.com/spetz
     image_url: https://github.com/spetz.png
 tags: [new-features, personal-access-tokens, pat]
