@@ -46,12 +46,12 @@ const config: Config = {
           showReadingTime: true,
           path: 'blog',
           routeBasePath: 'blogs',
-          blogTitle: 'Blogs'
+          blogTitle: 'Blogs',
           // showReadingTime: true,
-          // feedOptions: {
-          //   type: ['rss', 'atom'],
-          //   xslt: true,
-          // },
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
           // // Please change this to your repo.
           // // Remove this to remove the "edit this page" links.
           // // editUrl:
@@ -86,6 +86,11 @@ const config: Config = {
           label: 'Docs',
         },
         {to: '/blogs', label: 'Blogs', position: 'left'},
+        {
+          href: 'https://benchmarks.iggy.rs',
+          label: 'Benchmarks',
+          position: 'left',
+        },
         {
           href: 'https://github.com/iggy-rs/iggy',
           label: 'GitHub',
@@ -134,6 +139,10 @@ const config: Config = {
               label: 'X',
               href: 'https://x.com/ApacheIggy',
             },
+            {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/iggy.rs',
+            },
           ],
         },
         {
@@ -147,6 +156,10 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/iggy-rs/iggy',
             },
+            {
+              href: 'https://benchmarks.iggy.rs',
+              label: 'Benchmarks'
+            }
           ],
         },
       ],
