@@ -92,7 +92,17 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/iggy-rs/iggy',
+          href: 'https://discord.gg/C5Sux5NcRa',
+          label: 'Discord',
+          position: 'left',
+        },
+        {
+          href: 'https://forms.gle/MAd1GjpPwCjwdEp58',
+          label: 'Feedback',
+          position: 'left',
+        },
+        {
+          href: 'https://github.com/apache/iggy',
           label: 'GitHub',
           position: 'right',
         },
@@ -133,7 +143,7 @@ const config: Config = {
             },
             {
               label: 'Discord',
-              href: 'https://iggy.rs/discord',
+              href: 'https://discord.gg/C5Sux5NcRa',
             },
             {
               label: 'X',
