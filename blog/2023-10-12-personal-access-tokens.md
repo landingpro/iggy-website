@@ -16,12 +16,12 @@ Since the most recent update, Iggy.rs supports personal access tokens, which can
 
 ## Breaking changes
 
-No breaking changes have been introduced in neither Iggy server, nor Iggy SDK. The server does support the new `PAT` authentication method since version `0.0.40`, and the SDK since version `0.0.100`. The initial changes are part of the commit [#e74c25e](https://github.com/iggy-rs/iggy/commit/e74c25e058b1f39119ee89b5ada5d93f171cb221).
+No breaking changes have been introduced in neither Iggy server, nor Iggy SDK. The server does support the new `PAT` authentication method since version `0.0.40`, and the SDK since version `0.0.100`. The initial changes are part of the commit [#e74c25e](https://github.com/apache/iggy/commit/e74c25e058b1f39119ee89b5ada5d93f171cb221).
 
 ## Personal access tokens
 
 PAT is a simple idea, which allows authenticating the clients using a token, instead of the regular credentials (username and password). This approach might feel safer for some users, as the token can be deleted at any time, and it's not tied to the user's password. The tokens can be created, listed and deleted using the available APIs. PAT has an optional expiry, which can be set when creating the token.
- 
+
 
 ```rust
 pub struct CreatePersonalAccessToken {
@@ -64,7 +64,7 @@ async fn login_with_personal_access_token(
 ) -> Result<IdentityInfo, Error>;
 ```
 
-When creating the token, the server returns the `RawPersonalAccessToken` struct, which contains the string `token` value. 
+When creating the token, the server returns the `RawPersonalAccessToken` struct, which contains the string `token` value.
 
 ```rust
 pub struct RawPersonalAccessToken {

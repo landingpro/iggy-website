@@ -9,6 +9,8 @@ Iggy is the persistent message streaming, which means, that the messages are bei
 
 Let's discuss in-depth what these concepts are all about and how they relate to each other.
 
+![Architecture](/img/architecture.png)
+
 ## Message streaming
 
 There's a high chance that you've already used messaging tools such as RabbitMQ or Kafka, just to name a few. While they might look similar at the first glance, and actually, you can achieve the similar results with all of them (e.g. publishing and consuming the events by the different applications built on top of microservices architecture), they are quite different in their core.

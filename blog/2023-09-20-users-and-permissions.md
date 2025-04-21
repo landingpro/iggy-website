@@ -32,7 +32,7 @@ The `user_id` field is optional, and it's only returned when the user is authent
 
 Keep in mind that the `client` represents the application connected to the server - since it's possible that multiple applications would share the same user credentials, thus you can think of a `client` as a single connection from the application to the server (1 user -> N clients).
 
-This breaking change has been introduced with the commit [#23b3309](https://github.com/iggy-rs/iggy/commit/23b330928aa38463ef907c95a9f672fa7b728881). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.80.
+This breaking change has been introduced with the commit [#23b3309](https://github.com/apache/iggy/commit/23b330928aa38463ef907c95a9f672fa7b728881). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.80.
 
 ## Configuration
 

@@ -16,17 +16,17 @@ The optional message headers which you can think of as an additional metadata fo
 
 ## Breaking changes
 
-The first draft of the message headers implementation starts with the initial commit [#bc1d0b3](https://github.com/iggy-rs/iggy/commit/bc1d0b369a268783bd329436aba3f6920aae478e). The breaking change to the streaming server has been introduced in the commit [#7c73bd3](https://github.com/iggy-rs/iggy/commit/7c73bd3d9d59fb685cbaaca5901dec6cac43ddaf) - up until this point, the existing implementation of the `SendMessages`, `PollMessages` and the underlying file system messages' storage does work without any breaking changes. The available [iggy crate](https://crates.io/crates/iggy) supports the headers since version 0.0.30. 
+The first draft of the message headers implementation starts with the initial commit [#bc1d0b3](https://github.com/apache/iggy/commit/bc1d0b369a268783bd329436aba3f6920aae478e). The breaking change to the streaming server has been introduced in the commit [#7c73bd3](https://github.com/apache/iggy/commit/7c73bd3d9d59fb685cbaaca5901dec6cac43ddaf) - up until this point, the existing implementation of the `SendMessages`, `PollMessages` and the underlying file system messages' storage does work without any breaking changes. The available [iggy crate](https://crates.io/crates/iggy) supports the headers since version 0.0.30.
 
 ## Introduction
 
-Message headers are an **optional** part of the message which can be used to provide the additional metadata for the message (they are not a part of the message body. Similar to e.g. HTTP headers, you can think of them as a **key-value pairs**, or more precisely the dictionary or map. The headers consist of the key and the value, where the key is a string (**UTF-8 bytes**) and the value is a byte array. 
+Message headers are an **optional** part of the message which can be used to provide the additional metadata for the message (they are not a part of the message body. Similar to e.g. HTTP headers, you can think of them as a **key-value pairs**, or more precisely the dictionary or map. The headers consist of the key and the value, where the key is a string (**UTF-8 bytes**) and the value is a byte array.
 
 Since the headers are optional, you can send a message without any headers at all. There's no limit on the number of headers you can send, but the total size of the headers is currently limited to **100 KB**. The header key is **case-sensitive**, so it's best to send the **lowercase** keys. The maximum length of the key and the value is **255 bytes** (the maximum value of the `u8` type).
 
 For now, there are no reserved headers, so you can use any key you want. However, in the future, we might introduce some reserved headers used by the streaming server for the specific purposes such as the message compression, distributed tracing and so no.
 
-The **sample applications** using the message headers can be found [here](https://github.com/iggy-rs/iggy/tree/master/examples/src/message-headers).
+The **sample applications** using the message headers can be found [here](https://github.com/apache/iggy/tree/master/examples/src/message-headers).
 
 ## Implementation
 

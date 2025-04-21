@@ -16,15 +16,15 @@ The message expiration is a server-side feature, allowing to automatically delet
 
 ## Breaking changes
 
-No breaking changes have been introduced with this feature. The only breaking changes are related to the updated `CreateTopic`, `CreateStream` commands and `Stream` + `Topic` responses, which have been introduced in the latest commit [#ea3bf9c](https://github.com/iggy-rs/iggy/commit/ea3bf9c16dd5f93e1c80c140e9e1d14cfa70f570). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.50.
+No breaking changes have been introduced with this feature. The only breaking changes are related to the updated `CreateTopic`, `CreateStream` commands and `Stream` + `Topic` responses, which have been introduced in the latest commit [#ea3bf9c](https://github.com/apache/iggy/commit/ea3bf9c16dd5f93e1c80c140e9e1d14cfa70f570). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.50.
 
 ## Introduction
 
 The expiration policy is defined per topic, and it's being set when creating the topic. The value can be either provided via server configuration file, or via `CreateTopic` command. If the expiration is set in the configuration, it will be used as a default value for all the topics, unless when explicitly set when creating the topic via available `message_expiry` field.
 
-The expiration policy is defined as `u32` value, which is the number of seconds after which the message should be marked as expired. 
+The expiration policy is defined as `u32` value, which is the number of seconds after which the message should be marked as expired.
 
-For example, the value of 604800 represents 1 week (60 \* 60 \* 24 \* 7) - after this time, the messages will be marked as expired, and the whole segment will be deleted, as long as all the messages in this segment are expired. 
+For example, the value of 604800 represents 1 week (60 \* 60 \* 24 \* 7) - after this time, the messages will be marked as expired, and the whole segment will be deleted, as long as all the messages in this segment are expired.
 
 If there are still some messages which are not expired, the segment will be kept on the disk. By default, the new segment is automatically created when the previous one is full - either, it has reached the maximum size (defined by `size_bytes` property) or the currently stored messages have been expired, based on the current server timestamp and configured expiry value.
 
@@ -82,11 +82,11 @@ fn as_bytes(&self) -> Vec<u8> {
 ```
 
 
-Additionally, the `name_length` field has been added to the binary serialization of the `CreateTopic` and `CreateStream` commands, which allows specifying the length of the name - it should be serialized as `u8` value, before the actual name, with a maximum length of 255 characters. 
+Additionally, the `name_length` field has been added to the binary serialization of the `CreateTopic` and `CreateStream` commands, which allows specifying the length of the name - it should be serialized as `u8` value, before the actual name, with a maximum length of 255 characters.
 
 The following **regex** is used to validate the topic and stream names: `^[\w\.\-\s]+$`. The name will always be lowercased, and the whitespace will be trimmed and then replaced with the `.` character. The following rule applies to all the resources that contain the name field.
 
-Also, the `Topic` and `TopicDetails` returned when fetching the topic(s), have been extended with the `message_expiry` field, and the `name_length` has changed value from `u32 to `u8` (1 byte instead of 4 bytes). 
+Also, the `Topic` and `TopicDetails` returned when fetching the topic(s), have been extended with the `message_expiry` field, and the `name_length` has changed value from `u32 to `u8` (1 byte instead of 4 bytes).
 
 Serialization:
 

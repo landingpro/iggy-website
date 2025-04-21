@@ -16,7 +16,7 @@ The message state is a simple field which extends the existing `message` and pro
 
 ## Breaking changes
 
-Starting with the commit [#b07f23d](https://github.com/iggy-rs/iggy/commit/b07f23db798ffcda7c39650f34547f20137ff725) the breaking changes related to polling the messages by the client have been introduced. The `Message` struct used when invoking `PollMessage` command has been extended with new fields, which results in updated binary schema. The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.40.
+Starting with the commit [#b07f23d](https://github.com/apache/iggy/commit/b07f23db798ffcda7c39650f34547f20137ff725) the breaking changes related to polling the messages by the client have been introduced. The `Message` struct used when invoking `PollMessage` command has been extended with new fields, which results in updated binary schema. The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.40.
 
 ## Introduction
 

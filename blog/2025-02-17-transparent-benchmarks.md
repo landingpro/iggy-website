@@ -19,7 +19,7 @@ Sometimes, the benchmarking results are nothing more than just a **cherry-pickin
 
 Or even worse, the **benchmarking tool might be so complex, that it's hard to understand how it works**, and what are the assumptions behind it. ALl of these, does result in hard to extend or modify the existing benchmarks, which are not covering the particular use case you're interested in. It's just here to tell everyone that we do have benchmarks, but how we do it, and what they measure, is a mystery.
 
-**Which is why at [Iggy](https://github.com/iggy-rs/iggy/), we've decided to make the benchmarks a first-class citizen**.
+**Which is why at [Iggy](https://github.com/apache/iggy/), we've decided to make the benchmarks a first-class citizen**.
 
 Our `iggy-bench` tool, which is used to run the benchmarks and is part of the core open source repository (can be found under the `bench` directory), has come a long way and has been serving us well.
 
@@ -33,7 +33,7 @@ We use it to do quick performance checks, regression testing, and to see how the
 
 This is our community-driven effort, where everyone can contribute, and add their own benchmarks. For all the information on how to run the benchmarks, render them on the dashboard, upload your results or contribute to the project, please check the [iggy-bench-dashboard](https://github.com/iggy-rs/iggy-bench-dashboard) repository. In general, it's as simple as:
 
-- Building the [Iggy](https://github.com/iggy-rs/iggy) in the release mode with `cargo build --release`
+- Building the [Iggy](https://github.com/apache/iggy) in the release mode with `cargo build --release`
 - Starting your Iggy server with `cargo r --bin iggy-server -r` (feel free to adjust the configuration in `server.toml` or via environment variables)
 - Running the `iggy-bench` tool with the desired parameters, e.g. `cargo r --bin iggy-bench -r pinned-producer tcp`
 - Extending your benchmark with the output (HTML charts, JSON sampling etc.) `cargo r --bin iggy-bench -r pinned-producer tcp output -o performance_results --identifier spetz`

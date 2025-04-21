@@ -12,13 +12,13 @@ date: 2024-05-29
 
 ## Throwback
 
-**It's been a little over a year**, since the [Iggy.rs](https://iggy.rs) was born. The initial idea of building a side project (as a way of studying Rust) — an infrastructure for the message streaming (think of Kafka, RedPanda, Aeron etc.) — eventually turned out to be something much bigger that I could've ever imagined. In the [previous post](https://blog.iggy.rs/posts/building-message-streaming-in-rust/) (from almost half a year ago), I did describe what's [Iggy.rs](https://github.com/iggy-rs/iggy) all about, how it started, what's the ecosystem around it, what our goals are etc.
+**It's been a little over a year**, since the [Iggy.rs](https://iggy.rs) was born. The initial idea of building a side project (as a way of studying Rust) — an infrastructure for the message streaming (think of Kafka, RedPanda, Aeron etc.) — eventually turned out to be something much bigger that I could've ever imagined. In the [previous post](https://blog.iggy.rs/posts/building-message-streaming-in-rust/) (from almost half a year ago), I did describe what's [Iggy.rs](https://github.com/apache/iggy) all about, how it started, what's the ecosystem around it, what our goals are etc.
 
 This **particular article** turned out to be a sort of **catalyst**, as it received a really nice traction on [Reddit](https://www.reddit.com/r/rust/comments/18tgubd/iggyrs_building_message_streaming_in_rust/), and was also mentioned on the main site of [Hacker News](https://news.ycombinator.com/item?id=38868115), which I do believe were the two main reasons for the growing interest & community since then. At this point, I'd like to **thank you all very much** for such a kind feedback — honestly, during the very first weeks of 2024, there were so many things happening on our [Discord](https://discord.gg/C5Sux5NcRa), that with the rest of the team, we sometimes had a feeling as if we were providing enterprise premium support — really cool stuff!
 
 And although it may seem as if the project development has recently slowed down a bit, I'd say it's quite the opposite — let me quickly summary, what we've achieved so far during the last few months and what we're focusing on now, as the future looks bright :)
 
-![image](/one-year-of-building-the-message-streaming/iggy_stars.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_stars.png)
 
 ## Community
 
@@ -26,7 +26,7 @@ First and foremost, if it weren't for the community, we wouldn't have seen such 
 
 And it's been even more than that — we've seen our community members take on **building the new SDKs** in their favorite programming languages, fully on their own. Today, you can find the following list of supported SDKs for Iggy.rs — some of them could be lagging behind, but it's expected, as the project is still evolving, and it's not an easy task, to come up with a great development experience from the very beginning.
 
-- [Rust](https://github.com/iggy-rs/iggy)
+- [Rust](https://github.com/apache/iggy)
 - [C#](https://github.com/iggy-rs/iggy-dotnet-client)
 - [C++](https://github.com/iggy-rs/iggy-cpp-client)
 - [Node (TS)](https://github.com/iggy-rs/iggy-node-client)
@@ -51,23 +51,23 @@ Adding the brand new SDKs wasn't the only great thing that has happened during l
 
 And at the same time, we've been experimenting a lot with some fancy stuff, which you can read about in the last paragraphs :)
 
-![image](/one-year-of-building-the-message-streaming/iggy_perf.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_perf.png)
 
 ## Tooling
 
 The core message streaming server and multiple SDKs might sound as the most important parts of the whole ecosystem, but let's not forget about the **management tools**. How to quickly connect to the the server, create new topics, validate if the messages are being sent correctly, change the user permissions or check the node statistics?
 
-This is where our **[CLI](https://github.com/iggy-rs/iggy/tree/master/cli) and [Web UI](https://github.com/iggy-rs/iggy-web-ui) come in handy**. If you're a fan of working with the terminal and used to the great developer experience, you'll find our CLI a joy to work with.
+This is where our **[CLI](https://github.com/apache/iggy/tree/master/cli) and [Web UI](https://github.com/iggy-rs/iggy-web-ui) come in handy**. If you're a fan of working with the terminal and used to the great developer experience, you'll find our CLI a joy to work with.
 
-![image](/one-year-of-building-the-message-streaming/iggy_cli.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_cli.png)
 
 On the other hand, if you prefer a graphical interface accessible via your browser, Web UI has got you covered. What's even more impressive, is that both of these tools have been developed by the single developers.
 
-![image](/one-year-of-building-the-message-streaming/iggy_web.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_web.png)
 
-Last but not least, in order to run the benchmarks, we have our own [bench](https://github.com/iggy-rs/iggy/tree/master/bench) available as a part of the core repository — you can easily configure the number of producers, consumers, streams, etc. and get an overview of the possible streaming performance on your machine.
+Last but not least, in order to run the benchmarks, we have our own [bench](https://github.com/apache/iggy/tree/master/bench) available as a part of the core repository — you can easily configure the number of producers, consumers, streams, etc. and get an overview of the possible streaming performance on your machine.
 
-![image](/one-year-of-building-the-message-streaming/iggy_bench.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_bench.png)
 
 ## Early adopters
 
@@ -75,7 +75,7 @@ Overall, coding and implementing new features is one side of the story, the othe
 
 In our case, I do believe, that it was a mix of two things — a limited amount of such tooling in the Rust ecosystem (so that the language enthusiasts could to try out something fresh), as well as a much more lightweight and (hopefully) performant message streaming infrastructure than some of the well-established solutions.
 
-I'm fully aware that it's a bold claim, and running the synthetic benchmarks is not a viable proof (e.g. on my 7950X, I was able to hit **3GB/s writes and up to 10 GB/s reads** with some additional caching enabled), yet, most of our early adopters were very happy with their results e.g. outnumbering Kafka while utilizing much less memory. For example, [Marvin](https://github.com/iggy-rs/iggy/issues/606) wrote:
+I'm fully aware that it's a bold claim, and running the synthetic benchmarks is not a viable proof (e.g. on my 7950X, I was able to hit **3GB/s writes and up to 10 GB/s reads** with some additional caching enabled), yet, most of our early adopters were very happy with their results e.g. outnumbering Kafka while utilizing much less memory. For example, [Marvin](https://github.com/apache/iggy/issues/606) wrote:
 
 > 20 million msg/sec via tcp is pretty nuts and already blows several commercial systems out of the water.
 
@@ -87,7 +87,7 @@ One of the most frequent questions we receive is whether we plan to incorporate 
 
 And yes, we will certainly implement clustering in Iggy — as a matter of fact, we've already built its basic version in the [sandbox repository](https://github.com/iggy-rs/iggy-cluster-sandbox). In order to achieve that, we've decided to (at least for now) stick to the [Raft](https://raft.github.io) consensus algorithm. However, adding the data replication feature to the core Iggy project will require a new way of storing the server metadata (most likely in a way of event-sourced messages, to play nicely with the replication between the nodes) and one more "tiny" thing regarding the overall I/O.
 
-![image](/one-year-of-building-the-message-streaming/iggy_cluster.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_cluster.png)
 
 ## io_uring & thread-per-core + share-nothing
 
@@ -97,11 +97,11 @@ However, due to the nature of tasks being shared across the different threads, *
 
 Certainly, there are already existing solutions dealing with such challenges, such as [Aeron](https://aeron.io), but **we do believe, that we can make Iggy something much easier to use** — one that can handle the typical workloads, as well as the very demanding ones, without the need of getting a PhD in specific tooling :)
 
-We've decided to **experiment with [io_uring](https://unixism.net/loti/what_is_io_uring.html) to maximize the I/O performance** (and at the same time vastly reduce the need of context switches), and at the same time utilize **thread-per-core architecture**, where **each thread is pinned to the CPU core**, thus keeping the data locally, without the need of sharing it with the other threads (share-nothing). In order to achieve this, we've picked up [monoio](https://github.com/bytedance/monoio) runtime, and have already managed (as a starting point for future integration) to fully rewrite existing Tokio runtime into monoio on [this branch](https://github.com/iggy-rs/iggy/tree/io_uring_monoio_runtime).
+We've decided to **experiment with [io_uring](https://unixism.net/loti/what_is_io_uring.html) to maximize the I/O performance** (and at the same time vastly reduce the need of context switches), and at the same time utilize **thread-per-core architecture**, where **each thread is pinned to the CPU core**, thus keeping the data locally, without the need of sharing it with the other threads (share-nothing). In order to achieve this, we've picked up [monoio](https://github.com/bytedance/monoio) runtime, and have already managed (as a starting point for future integration) to fully rewrite existing Tokio runtime into monoio on [this branch](https://github.com/apache/iggy/tree/io_uring_monoio_runtime).
 
 And just recently, we've established yet another [sandbox repository](https://github.com/iggy-rs/iggy-thread-per-core-sandbox) to tackle the different challenges before deciding on the best solution possible and merging these changes into core Iggy streaming server.
 
-![image](/one-year-of-building-the-message-streaming/iggy_tpc.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_tpc.png)
 
 So far, we've got a very simple prototype in place, but there's still lots to be done, especially when thinking of:
 
@@ -130,4 +130,4 @@ It's been a very productive year for our core team (we've been and still are doi
 
 **We've got the fundamentals right, now it's high time to make Iggy blazingly fast!**
 
-![image](/one-year-of-building-the-message-streaming/iggy_rocket.png) 
+![image](/one-year-of-building-the-message-streaming/iggy_rocket.png)

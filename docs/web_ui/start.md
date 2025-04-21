@@ -7,7 +7,7 @@ sidebar_position: 1
 
 Iggy Web UI provides a comprehensive dashboard for Iggy server. It allows you to monitor the server's health, streams, topics, browse the messages, users and more. The dashboard is built with Svelte and is available as [open-source repository](https://github.com/iggy-rs/iggy-web-ui/) as well as the Docker image on [Docker Hub](https://hub.docker.com/r/iggyrs/iggy-web-ui).
 
-![Web UI](/img/iggy_web_ui_0_1_0.jpeg)
+![Web UI](/img/iggy_web_ui.png)
 
 Here's the full example of the `docker-compose.yml` file that starts the Iggy server, initializes it with the `my-stream` stream and `my-topic` topic with the help of [Iggy CLI](/cli/iggy-cli), and eventually starts the Iggy Web UI:
 

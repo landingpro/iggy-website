@@ -16,7 +16,7 @@ In the latest update, the Iggy server as well as the clients for all the availab
 
 ## Breaking changes
 
-The breaking changes have been introduced in Iggy server, starting from version `0.0.30` and Iggy SDK, starting from version `0.0.90`. The final commit containing all the mentioned changes is [#655f9b6](https://github.com/iggy-rs/iggy/commit/655f9b6bccb0ae4148422f32475a9bedc09827d2).
+The breaking changes have been introduced in Iggy server, starting from version `0.0.30` and Iggy SDK, starting from version `0.0.90`. The final commit containing all the mentioned changes is [#655f9b6](https://github.com/apache/iggy/commit/655f9b6bccb0ae4148422f32475a9bedc09827d2).
 
 ## Consumer identifier
 

@@ -12,13 +12,13 @@ date: 2023-12-29
 
 ## Origins
 
-Over half a year ago (in April, to be exact), I eventually decided to learn Rust for good. My previous attempt during the [2022 AoC](https://github.com/spetz/advent-of-code-2022) had failed rather quickly, after a few days of completing the exercises - I finally realized that **I needed a real project to work on**. For the last few years, I've been dealing with the different kinds of distributed systems (mostly using C#), including the typical microservices architecture or Web3. Regardless of their nature, some sort of the messaging between the independent components was always required. I had a chance to use the tools such as [RabbitMQ](https://rabbitmq.com), [ZeroMQ](https://zeromq.org), [Kafka](https://kafka.apache.org) or [Aeron](https://aeron.io) (just to name a few), as well as implementing the low-level peer-to-peer communication [protocols](https://libp2p.io). 
+Over half a year ago (in April, to be exact), I eventually decided to learn Rust for good. My previous attempt during the [2022 AoC](https://github.com/spetz/advent-of-code-2022) had failed rather quickly, after a few days of completing the exercises - I finally realized that **I needed a real project to work on**. For the last few years, I've been dealing with the different kinds of distributed systems (mostly using C#), including the typical microservices architecture or Web3. Regardless of their nature, some sort of the messaging between the independent components was always required. I had a chance to use the tools such as [RabbitMQ](https://rabbitmq.com), [ZeroMQ](https://zeromq.org), [Kafka](https://kafka.apache.org) or [Aeron](https://aeron.io) (just to name a few), as well as implementing the low-level peer-to-peer communication [protocols](https://libp2p.io).
 
 After a few months of trying to figure out (or just staying in the limbo I guess), what would be the best project to work on, I decided to build the **message streaming platform** (keep in mind that streaming is [not the same](https://blog.iron.io/message-queue-vs-streaming/) as regular message broker). The other reason (besides getting to know Rust) was to **truly understand the internals of the messaging systems** and the trade-offs that were made by their developers - some of them being the sole implication of the theory of distributed systems (ordering, consistency, partitioning etc.), while others the result of the implementation details (programming language, OS, hardware and so on).
 
 And this is how the [Iggy.rs](https://iggy.rs) was born. The name is an abbreviation of the Italian Greyhound (yes, I own [two of them](https://www.instagram.com/fabio.and.cookie/)), small yet extremely fast dogs, the best in their class.
 
-![image](/building-message-streaming/iggys.jpeg) 
+![image](/building-message-streaming/iggys.jpeg)
 
 Therefore, what I want, or actually **what we want** (since there's a few of us working on it already) for Iggy.rs to be - the best message streaming platform in its class. **Lightweight** in terms of the resource consumption, **fast** (and predictable) when it comes to the throughput and latency, and **easy to use** when speaking of its API, SDK and configuration of the project.
 
@@ -26,11 +26,11 @@ Therefore, what I want, or actually **what we want** (since there's a few of us 
 
 At the very beginning, Iggy had rather limited functionality, and everything was handled using the [QUIC](https://www.chromium.org/quic/) protocol based on [Quinn](https://github.com/quinn-rs/quinn) library. You could connect multiple applications into the server, and start exchanging the messages between them, simply by appending the data to the stream (from the producer perspective), and fetching the records on the consumer side, by providing an offset (numeric value specifying from which element in the stream, you'd like to query the data) - that's pretty much the very basics of how the message streaming platform works in terms of the underlying infrastructure.
 
-After spending a few weeks on building the initial version, and then another few weeks on rewriting its core part (yes, prototyping + validation repeated in a continuous loop worked quite well), I managed to implement the persistent streaming server being capable of parallel writes/reads to/from independent streams supporting many distinct apps connected into it. Simply put, one could easily have many applications, and even **thousands of the streams** (depending on how do you decide to split your data between them e.g. one stream for user related events, another one for the payments events etc.) and start producing & consuming the messages without interfering to each other. 
+After spending a few weeks on building the initial version, and then another few weeks on rewriting its core part (yes, prototyping + validation repeated in a continuous loop worked quite well), I managed to implement the persistent streaming server being capable of parallel writes/reads to/from independent streams supporting many distinct apps connected into it. Simply put, one could easily have many applications, and even **thousands of the streams** (depending on how do you decide to split your data between them e.g. one stream for user related events, another one for the payments events etc.) and start producing & consuming the messages without interfering to each other.
 
 On top of this, the support for **TCP** and **HTTP** protocols have been added. Under the hood, the typical architecture of streams, consisting of the topics being split into the partitions, which eventually operate on a raw file data using so-called segments has been implemented as well.
 
-![image](/building-message-streaming/iggy_sample.jpeg) 
+![image](/building-message-streaming/iggy_sample.jpeg)
 
 **It was one of the "aha" moments**, when reimplementing the parallel access to the data with the usage of underlying synchronization mechanism (*RwLock* etc.), optimized data structures e.g. for dealing with [bytes](https://crates.io/crates/bytes), along with the [Tokio](https://tokio.rs) **work stealing** approach, yielded the great improvements for the overall throughput.
 
@@ -48,9 +48,9 @@ let polled_messages = client.poll_messages(&PollMessages {
 }).await?;
 ```
 
-After running some benchmarks (yes, we have a dedicated app for the **[benchmarking purposes](https://github.com/iggy-rs/iggy/tree/master/bench)**) and seeing the promising numbers (**range of 2-6 GB/s for both, writes & reads when processing millions of messages**), I eventually decided to give it a long-term shot. Being fully aware that there's still lots to be done (speaking of many months, or even years), I couldn't be more happy to find out that there's also someone else out there, who would like to contribute to the project and become a part of the team.
+After running some benchmarks (yes, we have a dedicated app for the **[benchmarking purposes](https://github.com/apache/iggy/tree/master/bench)**) and seeing the promising numbers (**range of 2-6 GB/s for both, writes & reads when processing millions of messages**), I eventually decided to give it a long-term shot. Being fully aware that there's still lots to be done (speaking of many months, or even years), I couldn't be more happy to find out that there's also someone else out there, who would like to contribute to the project and become a part of the team.
 
-![image](/building-message-streaming/iggy_bench.jpeg) 
+![image](/building-message-streaming/iggy_bench.jpeg)
 
 ## Team
 
@@ -58,7 +58,7 @@ At the time of writing this post, **Iggy consists of around 10 members** contrib
 
 Well, I wish I had an answer to that question - honestly, in case of Iggy I wasn't actually looking for anyone, as I didn't think this could be an interesting project to work on (except for myself). Then how did that happen anyway? There were only 2 things in common - all the people that joined the project were part of the same Discord communities, yet more importantly **they all shared the passion for programming**, and I'm not talking about Rust language specifically. From junior to senior, from embedded to front-end developers - regardless of the years of experience and current occupation, everyone has found a way to implement something meaningful.
 
-![image](/building-message-streaming/iggy_server.jpeg) 
+![image](/building-message-streaming/iggy_server.jpeg)
 
 For example, when I asked one guy what was the reason behind building an SDK in Go, the reply was the need of playing with and learning a new language. Why C# SDK? Well, the other guy wanted to dive more into the low-level concepts and decided to squeeze out great performance from the managed runtime. Why build Web UI in Svelte? At work, I mostly use React, and I wanted to learn a new framework - another member said.
 
@@ -111,17 +111,17 @@ And as already mentioned, we've been working on SDKs for the multiple programmin
 
 Please keep in mind, though, that some of them e.g. for Rust or C# are more up to date with the recent server changes, while the other ones might still need to do some catching up with the latest features. However, given the amount of available methods on the server's API and the underlying TCP/UDP stack with custom serialization to be implemented from the scratch (except for HTTP transport, that's the easier one), I'd say we're doing quite ok, and I can't stress enough **how grateful I am to all the contributors for their huge amount of work**!
 
-But wait, there's even more - what would be a message streaming platform without some additional tooling for managing it? We've also been developing the **[CLI](https://github.com/iggy-rs/iggy/tree/master/cmd)**.
+But wait, there's even more - what would be a message streaming platform without some additional tooling for managing it? We've also been developing the **[CLI](https://github.com/apache/iggy/tree/master/cmd)**.
 
-![image](/building-message-streaming/iggy_cli.jpeg) 
+![image](/building-message-streaming/iggy_cli.jpeg)
 
 As well as modern **[Web UI](https://github.com/iggy-rs/iggy-web-ui)** to make it happen :)
 
-![image](/building-message-streaming/iggy_web_ui.jpeg) 
+![image](/building-message-streaming/iggy_web_ui.jpeg)
 
-Last but not least, we've got a fully-featured [CI/CD pipeline](https://github.com/iggy-rs/iggy/actions) responsible for running all the checks and tests on multiple platforms, and finally producing the release artifacts and [Docker images](https://hub.docker.com/u/iggyrs).
+Last but not least, we've got a fully-featured [CI/CD pipeline](https://github.com/apache/iggy/actions) responsible for running all the checks and tests on multiple platforms, and finally producing the release artifacts and [Docker images](https://hub.docker.com/u/iggyrs).
 
-![image](/building-message-streaming/iggy_ci_cd.jpeg) 
+![image](/building-message-streaming/iggy_ci_cd.jpeg)
 
 At first glance, it might look like there's plenty of features already in place, but for anyone who has ever worked with the message streaming infrastructure before, that might be just a tip of an iceberg, thus let's discuss the roadmap.
 

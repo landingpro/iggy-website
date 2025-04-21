@@ -11,9 +11,9 @@ date: 2024-10-28
 ---
 ## Technology Radar
 
-Quite recently (a few days ago), [Iggy](https://github.com/iggy-rs/iggy) has been listed on [Technology Radar](https://www.thoughtworks.com/radar/platforms/summary/iggy) by [Thoughtworks](https://www.thoughtworks.com/) - a well-known technology consulting company.
+Quite recently (a few days ago), [Iggy](https://github.com/apache/iggy) has been listed on [Technology Radar](https://www.thoughtworks.com/radar/platforms/summary/iggy) by [Thoughtworks](https://www.thoughtworks.com/) - a well-known technology consulting company.
 
-If you're not familiar with the Technology Radar, it's essentially an opinionated set (updated twice a year and subscribed by the thousands of developers worldwide) of the tools, platforms, frameworks, techniques etc. which you may want to try out & explore in your IT projects. Everything is split into the different categories, depending on the maturity or popularity of the particular tool. 
+If you're not familiar with the Technology Radar, it's essentially an opinionated set (updated twice a year and subscribed by the thousands of developers worldwide) of the tools, platforms, frameworks, techniques etc. which you may want to try out & explore in your IT projects. Everything is split into the different categories, depending on the maturity or popularity of the particular tool.
 
 ![image](/technology-radar-and-currrent-goals/iggy_technology_radar.png)
 
@@ -31,7 +31,7 @@ Now, given the recent publication and increased activity within our [OSS communi
 
 Without a doubt, being able to run your infrastructure (which processes & stores the data) as a cluster, gives much more confidence and greatly impacts the overall reliability.
 
-We've started [experimenting](https://github.com/iggy-rs/iggy-cluster-sandbox) with the replication over half a year ago already by implementing the basic, Raft based consensus algorithm for the simple message streaming server. 
+We've started [experimenting](https://github.com/iggy-rs/iggy-cluster-sandbox) with the replication over half a year ago already by implementing the basic, Raft based consensus algorithm for the simple message streaming server.
 
 At the same time, we were researching the other possible solutions, after we've finally decided to move on with **Viewstamped Replication** (in its [revisited form](https://pmg.csail.mit.edu/papers/vr-revisited.pdf)), which was successfully used by e.g. [TigerBeetle](https://tigerbeetle.com/).
 
@@ -45,7 +45,7 @@ Below is our very first draft for the initial implementation of VSR.
 
 ### S3 storage
 
-A few months ago, we did [implement](https://github.com/iggy-rs/iggy/pull/1053) an optional archiver for the server state log & streaming data (messages etc.) which supports any S3 compatible storage (just pick up your favorite cloud provider). The configuration is as simple as this example:
+A few months ago, we did [implement](https://github.com/apache/iggy/pull/1053) an optional archiver for the server state log & streaming data (messages etc.) which supports any S3 compatible storage (just pick up your favorite cloud provider). The configuration is as simple as this example:
 
 ```toml
 [data_maintenance.archiver]
@@ -91,7 +91,7 @@ Or, you could just ignore your server's RAM & SSD, and do all the writes and rea
 
 ### OpenTelemetry
 
-Speaking of the Quickwit, we've also [implemented](https://github.com/iggy-rs/iggy/pull/1294) a support for [OpenTelemetry](https://opentelemetry.io/) logs & traces for the server. Since our SDK already uses the logging & tracing libraries, we thought that adding such a feature on the server, could help you gain even better, real-time observability into what's happening under the hood.
+Speaking of the Quickwit, we've also [implemented](https://github.com/apache/iggy/pull/1294) a support for [OpenTelemetry](https://opentelemetry.io/) logs & traces for the server. Since our SDK already uses the logging & tracing libraries, we thought that adding such a feature on the server, could help you gain even better, real-time observability into what's happening under the hood.
 
 ```toml
 # OpenTelemetry configuration

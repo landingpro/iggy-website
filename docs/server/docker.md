@@ -5,7 +5,7 @@ title: Docker
 sidebar_position: 3
 ---
 
-You can easily run the Iggy server with Docker - the official images can be found [here](https://hub.docker.com/r/iggyrs/iggy), simply type `docker pull iggyrs/iggy`.
+You can easily run the Iggy server with Docker - the official images can be found [here](https://hub.docker.com/r/apache/iggy), simply type `docker pull apache/iggy`.
 
 Below is an example of the `docker-compose.yml` file which additionally overrides the default configuration (described in the section below) with the environment variables. If you prefer using the configuration file, you can mount it as a volume and provide the path to it with the `IGGY_CONFIG_PATH` environment variable.
 

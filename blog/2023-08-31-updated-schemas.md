@@ -16,7 +16,7 @@ The latest update introduces the changes to the `PollMessages` and `GetConsumerO
 
 ## Breaking changes
 
-Breaking changes have been introduced with the commit [#670a8ba](https://github.com/iggy-rs/iggy/commit/670a8baba8617bb7e52bd51d556a621349e2e9f0). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.60.
+Breaking changes have been introduced with the commit [#670a8ba](https://github.com/apache/iggy/commit/670a8baba8617bb7e52bd51d556a621349e2e9f0). The available [iggy crate](https://crates.io/crates/iggy) supports these changes since version 0.0.60.
 
 ## PollMessages
 

@@ -16,7 +16,7 @@ you typically encounter one or more of the following scenarios:
 5) Add producers dynamically at runtime.
 
 The stream builder provides a convenient way to create the iggy client, producer and consumer for these use cases.
-All source code examples are located in the [**examples folder**](https://github.com/iggy-rs/iggy/tree/master/examples/src/stream-builder) of the iggy repository. Also,
+All source code examples are located in the [**examples folder**](https://github.com/apache/iggy/tree/master/examples/src/stream-builder) of the iggy repository. Also,
 if you encounter a problem with any of the examples below, please ask in the [**community discord**](https://discord.gg/C5Sux5NcRa).
 
 ## IggyStream Builder
@@ -38,9 +38,9 @@ const IGGY_URL: &str = "iggy://iggy:iggy@localhost:8090";
 #[tokio::main]
 async fn main() -> Result<(), IggyError> {
     let stream_config = IggyStreamConfig::default();
-    let (client, producer, consumer) = 
+    let (client, producer, consumer) =
     IggyStream::with_client_from_connection_string(IGGY_URL, &stream_config).await?;
-    
+
     let (sender, receiver) = oneshot::channel();
     tokio::spawn(async move {
         match consumer.consume_messages(&PrintEventConsumer {}, receiver)
@@ -105,7 +105,7 @@ const IGGY_URL: &str = "iggy://iggy:iggy@localhost:8090";
 #[tokio::main]
 async fn main() -> Result<(), IggyError> {
     let config = IggyProducerConfig::default();
-    let (client, producer) = 
+    let (client, producer) =
     IggyStreamProducer::with_client_from_url(IGGY_URL, &config).await?;
 
     producer.send_one(Message::from_str("Hola Iggy")?).await?;
@@ -127,13 +127,13 @@ constructor with the following:
 ```
 
 You find sample utils to build a customized iggy client in
-the [**examples folder**](https://github.com/iggy-rs/iggy/blob/master/examples/src/shared/client.rs) of the iggy
+the [**examples folder**](https://github.com/apache/iggy/blob/master/examples/src/shared/client.rs) of the iggy
 repository.
 
 ### Producer configuration
 
 The IggyProducerConfig gives you a way to configure the producer in sufficient detail. Please note, if you have
-questions about any of those settings, please ask in the community discord. For basic customization, the `from_stream_topic` constructor 
+questions about any of those settings, please ask in the community discord. For basic customization, the `from_stream_topic` constructor
 lets you set a custom stream and topic name as well as the maximum batch size and message send interval.
 
 ```rust
@@ -149,7 +149,7 @@ let res = IggyProducerConfig::from_stream_topic(
          ).unwrap();
 ```
 
-The remaining configuration fields are set to default values applicable to the most common use case. This should be sufficient for a simple application, or proof of concept without getting lost in details. 
+The remaining configuration fields are set to default values applicable to the most common use case. This should be sufficient for a simple application, or proof of concept without getting lost in details.
 However, for more complex applications, you might want to configure more
 details and for that, see below a commented example of the full producer configuration:
 
@@ -175,7 +175,7 @@ async fn main() -> Result<(), IggyError> {
         .topic_id(topic.try_into()?)
         .topic_name(topic)
         // Sets the number of partitions to create for the topic.
-        // The more clients are reading concurrently, 
+        // The more clients are reading concurrently,
         // the more partitions you should create.
         // i.e. if you have 10 clients, you should create 10 partitions
         .topic_partitions_count(10)
@@ -183,30 +183,30 @@ async fn main() -> Result<(), IggyError> {
         // There is a tradeoff between replication factor and performance,
         // so you better benchmark your setup.
         .topic_replication_factor(2)
-        // The max number of messages to send in a batch. 
+        // The max number of messages to send in a batch.
         // The greater the batch size, the higher the bulk throughput.
-        // Note, there is a tradeoff between batch size and latency, 
+        // Note, there is a tradeoff between batch size and latency,
         // so you want to benchmark your setup.
         .batch_size(100)
-        // Sets the interval between sending the messages.  
+        // Sets the interval between sending the messages.
         // Affects latency so you want to benchmark.
         .send_interval(IggyDuration::from_str("5ms").unwrap())
-        // `Partitioning` specifies to which partition the messages 
+        // `Partitioning` specifies to which partition the messages
         // should be sent.
         // It has the following options:
         // - `Balanced` - round-robin dispatch.
         // - `PartitionId` - the partition ID is provided by the client.
-        // - `MessagesKey` - the partition ID is calculated by the server 
+        // - `MessagesKey` - the partition ID is calculated by the server
         //    using the hash of the provided messages key.
         .partitioning(Partitioning::balanced())
-        // Sets the retry policy (maximum number of retries and interval) 
+        // Sets the retry policy (maximum number of retries and interval)
         // in case of messages sending failure.
-        // The error can be related either to disconnecting from the server 
+        // The error can be related either to disconnecting from the server
         // or to the server rejecting the messages.
         // Default is 3 retries with 1 second interval between them.
         .send_retries_count(3)
         .send_retries_interval(IggyDuration::new_from_secs(1))
-        // Optionally, set a custom client side encryptor for encrypting 
+        // Optionally, set a custom client side encryptor for encrypting
         // the messages' payloads. Currently only Aes256Gcm is supported.
         // Note, this is independent of server side encryption.
         // You can add client encryption, server encryption, or both.
@@ -216,8 +216,8 @@ async fn main() -> Result<(), IggyError> {
 }
 ```
 
-Note, when your requirements exceed this configuration, you can still 
-use the [**underlying low level SDK**](https://github.com/iggy-rs/iggy/blob/master/examples/src/basic/producer/main.rs) for fine grained control over every detail of the producer.
+Note, when your requirements exceed this configuration, you can still
+use the [**underlying low level SDK**](https://github.com/apache/iggy/blob/master/examples/src/basic/producer/main.rs) for fine grained control over every detail of the producer.
 
 ## IggyStreamConsumer Builder
 
@@ -240,7 +240,7 @@ const IGGY_URL: &str = "iggy://iggy:iggy@localhost:8090";
 #[tokio::main]
 async fn main() -> Result<(), IggyError> {
     let config = IggyConsumerConfig::default();
-    let (client, consumer) = 
+    let (client, consumer) =
     IggyStreamConsumer::with_client_from_url(IGGY_URL, &config).await?;
 
     let (tx, rx) = oneshot::channel();
@@ -274,7 +274,7 @@ consumer. To do so, just replace the `with_client_from_url` with the following:
 ```
 
 Notice, you find some utils to build a customized iggy client in
-the [**examples folder**](https://github.com/iggy-rs/iggy/blob/master/examples/src/shared/client.rs) of the iggy
+the [**examples folder**](https://github.com/apache/iggy/blob/master/examples/src/shared/client.rs) of the iggy
 repository.
 
 ### Consumer configuration
@@ -308,13 +308,13 @@ async fn main() -> Result<(), IggyError> {
     .topic_id(topic.try_into()?)
     .topic_name(topic)
     // The auto-commit configuration for storing the message offset.
-    // See: https://github.com/iggy-rs/iggy/blob/master/sdk/src/clients/consumer.rs
+    // See: https://github.com/apache/iggy/blob/master/sdk/src/clients/consumer.rs
     .auto_commit(AutoCommit::When(AutoCommitWhen::PollingMessages))
-    // The max number of messages to send in a batch. 
+    // The max number of messages to send in a batch.
     // The greater the batch size, the higher the bulk throughput.
-    // Note, there is a tradeoff between batch size and latency, 
+    // Note, there is a tradeoff between batch size and latency,
     // so you want to benchmark your configuration.
-    // Note, this only applies to batch send messages. 
+    // Note, this only applies to batch send messages.
     // Single messages are sent immediately.
     .batch_size(100)
     // Create the stream if it doesn't exist.
@@ -323,10 +323,10 @@ async fn main() -> Result<(), IggyError> {
     .create_topic_if_not_exists(true)
     // The name of the consumer. Must be unique.
     .consumer_name("test_consumer".to_string())
-    // The type of consumer. It can be either `Consumer` or `ConsumerGroup`. 
+    // The type of consumer. It can be either `Consumer` or `ConsumerGroup`.
     // ConsumerGroup is default.
     .consumer_kind(ConsumerKind::ConsumerGroup)
-    // Sets the number of partitions for ConsumerKind `Consumer`. 
+    // Sets the number of partitions for ConsumerKind `Consumer`.
     // Does not apply to `ConsumerGroup`.
     .partitions_count(1)
     // The polling interval for messages.
@@ -335,25 +335,25 @@ async fn main() -> Result<(), IggyError> {
     // It has the following kinds:
     // - `Offset` - start polling from the specified offset.
     // - `Timestamp` - start polling from the specified timestamp.
-    // - `First` - start polling from the first message in the partition. 
-    // - `Last` - start polling from the last message in the partition. 
-    // - `Next` - start polling from the next message after the 
+    // - `First` - start polling from the first message in the partition.
+    // - `Last` - start polling from the last message in the partition.
+    // - `Next` - start polling from the next message after the
     // last polled message based on the stored consumer offset.
     .polling_strategy(PollingStrategy::last())
     // Sets the polling retry interval in case of server disconnection.
     .polling_retry_interval(IggyDuration::new_from_secs(1))
-    // Sets the number of retries and the interval when initializing 
+    // Sets the number of retries and the interval when initializing
     // the consumer if the stream or topic is not found.
-    // Might be useful when the stream or topic is created dynamically 
+    // Might be useful when the stream or topic is created dynamically
     // by the producer.
     // The retry only occurs when configured and is disabled by default.
     // When you want to retry at most 5 times with an interval of 1 second,
     // you set `init_retries` to 5 and `init_interval` to 1 second.
     .init_retries(5)
     .init_interval(IggyDuration::new_from_secs(1))
-    // Optionally, set a custom client side encryptor for encrypting 
+    // Optionally, set a custom client side encryptor for encrypting
     // the messages' payloads. Currently only Aes256Gcm is supported.
-    // Key must be identical to the one used by the producer; 
+    // Key must be identical to the one used by the producer;
     // thus ensure secure key exchange.
     // Note, this is independent of server side encryption.
     // you can add client encryption, server encryption, or both.
@@ -378,7 +378,7 @@ to ensure the consumer creates them and starts correctly. Other than that, you j
 
 ```rust
     let config = get_my_custom_iggy_consumer_config();
-    let (client, consumer) = 
+    let (client, consumer) =
     IggyStreamConsumer::with_client_from_url(IGGY_URL, &config).await?;
 ```
 
@@ -392,17 +392,17 @@ calling the `IggyStreamProducer::build` method. Unlike the consumer, the produce
 missing streams or topics by default. The `IggyConsumerConfig` has a convenient builder to create
 a new configuration from just the stream, topic, batch size and send interval. See the example below.
 
-```rust 
+```rust
     let config = IggyConsumerConfig::from_stream_topic(
             "new_stream",
             "new_topic",
             100,
             IggyDuration::from_str("5ms").unwrap(),
         ).unwrap();
-        
-    let (client, consumer) = 
+
+    let (client, consumer) =
     IggyStreamConsumer::with_client_from_url(IGGY_URL, &config).await?;
 ```
 
 If you encounter a problem with any of the examples show on this page,
-please ask in the [**community discord**](https://discord.gg/C5Sux5NcRa). 
+please ask in the [**community discord**](https://discord.gg/C5Sux5NcRa).
