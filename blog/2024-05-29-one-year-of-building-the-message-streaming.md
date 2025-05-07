@@ -14,6 +14,8 @@ date: 2024-05-29
 
 **It's been a little over a year**, since the [Iggy.rs](https://iggy.rs) was born. The initial idea of building a side project (as a way of studying Rust) — an infrastructure for the message streaming (think of Kafka, RedPanda, Aeron etc.) — eventually turned out to be something much bigger that I could've ever imagined. In the [previous post](https://blog.iggy.rs/posts/building-message-streaming-in-rust/) (from almost half a year ago), I did describe what's [Iggy.rs](https://github.com/apache/iggy) all about, how it started, what's the ecosystem around it, what our goals are etc.
 
+<!--truncate-->
+
 This **particular article** turned out to be a sort of **catalyst**, as it received a really nice traction on [Reddit](https://www.reddit.com/r/rust/comments/18tgubd/iggyrs_building_message_streaming_in_rust/), and was also mentioned on the main site of [Hacker News](https://news.ycombinator.com/item?id=38868115), which I do believe were the two main reasons for the growing interest & community since then. At this point, I'd like to **thank you all very much** for such a kind feedback — honestly, during the very first weeks of 2024, there were so many things happening on our [Discord](https://discord.gg/C5Sux5NcRa), that with the rest of the team, we sometimes had a feeling as if we were providing enterprise premium support — really cool stuff!
 
 And although it may seem as if the project development has recently slowed down a bit, I'd say it's quite the opposite — let me quickly summary, what we've achieved so far during the last few months and what we're focusing on now, as the future looks bright :)

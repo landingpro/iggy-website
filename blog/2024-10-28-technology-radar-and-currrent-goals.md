@@ -15,6 +15,8 @@ Quite recently (a few days ago), [Iggy](https://github.com/apache/iggy) has been
 
 If you're not familiar with the Technology Radar, it's essentially an opinionated set (updated twice a year and subscribed by the thousands of developers worldwide) of the tools, platforms, frameworks, techniques etc. which you may want to try out & explore in your IT projects. Everything is split into the different categories, depending on the maturity or popularity of the particular tool.
 
+<!--truncate-->
+
 ![image](/technology-radar-and-currrent-goals/iggy_technology_radar.png)
 
 As you can see, we were put right into the **assess** bucket (next to such renowned solutions such as e.g. [FoundationDB](https://www.foundationdb.org/)) - being the projects which are worth exploring & understanding how they might affect your enterprise. Frankly speaking, we weren't expecting this at all, and **from our perspective, it's quite of an accomplishment**.

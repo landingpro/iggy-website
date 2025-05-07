@@ -13,6 +13,8 @@ date: 2025-02-17
 
 In the world of software development, **benchmarks are often treated as a second-class citizen**. They're more of an addition to the codebase, rather than a crucial part of it, which should be the other way around, especially when it comes to the performance-critical systems or infrastructure tools.
 
+<!--truncate-->
+
 Sometimes, the benchmarking results are nothing more than just a **cherry-picking of the best-case scenarios**, which are not representative of real-world usage. In such a case, they simply serve a sole purpose of either making the project look better than it is or how well it does outperform the competition, under the extremely optimized conditions when comparing with its counterparts.
 
 **Trying to reproduce the benchmarks is often a nightmare**, as the environment setup is not documented, the code is unavailable, or the instructions are not clear enough. This makes it close to impossible to verify the results, which are then taken for granted.

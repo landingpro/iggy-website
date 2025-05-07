@@ -11,6 +11,8 @@ date: 2025-02-10
 ---
 We are thrilled to announce that **Iggy** has officially joined the **[Apache Incubator](https://incubator.apache.org/)**! This marks a major milestone in our journey to redefine message streaming — one that is **blazingly fast, hyper-efficient, and built for the future**. Since the very first day, **Iggy was always meant to be a truly FOSS project** — not just open-source in name, but deeply rooted in the values of transparency, collaboration, and community-driven innovation.
 
+<!--truncate-->
+
 ## 🚀 A Journey Two Years in the Making
 It’s been almost two years since the very first line of code was written, and we’ve come a long way since the initial release. What started as a bold idea has grown into a high-performance, cost-efficient message streaming solution with a thriving community of contributors, users, and advocates. We’ve received invaluable feedback, contributions, and support, and we’re more excited than ever to take Iggy to the next level.
 
