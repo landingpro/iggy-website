@@ -1,5 +1,5 @@
 ---
-title: Zero-copy (de)deserialization
+title: Zero-copy (de)serialization
 authors:
   - name: Grzegorz Koszyk
     title: Apache Iggy PPMC Member
