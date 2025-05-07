@@ -5,6 +5,10 @@ authors:
     title: Apache Iggy Core Developer
     url: https://github.com/numinnex
     image_url: https://github.com/numinnex.png
+  - name: Hubert Gruszecki
+    title: Apache Iggy Core Developer
+    url: https://github.com/hubcio
+    image_url: https://github.com/hubcio.png
 tags: []
 hide_table_of_contents: false
 date: 2025-05-08
@@ -123,7 +127,7 @@ You can find more detailed comparisons on our **[benchmarking website](https://b
 
 ## Concluding
 
-**It was a lot of fun exploring the entire design space for our zero copy schema**. Depending on the constraints one might end up with a completely different solution, in fact zero copy isn't always the optimal approach, for example, if you'd like to read more about challenges that folks in embedded development have to overcome, check out **[this Bluesky post from James Munns](https://bsky.app/profile/jamesmunns.com/post/3lnqo5ykawc2r), or more broadly his project **[postcard-rpc](https://github.com/jamesmunns/postcard-rpc)**.
+**It was a lot of fun exploring the entire design space for our zero copy schema**. Depending on the constraints one might end up with a completely different solution, in fact zero copy isn't always the optimal approach, for example, if you'd like to read more about challenges that folks in embedded development have to overcome, check out **[this Bluesky post from James Munns](https://bsky.app/profile/jamesmunns.com/post/3lnqo5ykawc2r)**, or more broadly his project **[postcard-rpc](https://github.com/jamesmunns/postcard-rpc)**.
 
 ## What’s next for Iggy
 
