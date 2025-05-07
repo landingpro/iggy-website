@@ -46,12 +46,11 @@ pub struct IggyMessage {
 }
 ```
 
-Rkyv internally figures out the memory layout used for serialization, such that it can later on cast it back into its Archived form. A couple bits of trivia: rkyv, when performing zero copy deserialization, turns the byte representation of your data into its Archived form, so instead of `IggyBatch` we receive `ArchivedIggyBatch`, rkyv has to reimplement certain complex types such as `Vec`, `HashMap` etc. and that’s why it yields back your type in Archived form. You can learn more about it by reading the **[rkyv book](https://rkyv.org)**, or from this **[presentation](https://www.youtube.com/watch?v=ON4z2LbTD-4)**.
+Rkyv internally figures out the memory layout used for serialization, such that it can later on cast it back into its Archived form. (A couple bits of trivia: rkyv, when performing zero copy deserialization, turns the byte representation of your data into its Archived form, so instead of `IggyBatch` we receive `ArchivedIggyBatch`, rkyv has to reimplement certain complex types such as `Vec`, `HashMap` etc., and that’s why it yields back your type in Archived form.)
+You can learn more about it by reading the **[rkyv book](https://rkyv.org)**, or from this **[presentation](https://www.youtube.com/watch?v=ON4z2LbTD-4)**.
 
-Upon further evaluation of `IggyBatch`, we concluded that despite its sufficiency, it left room for improvement.
-
-Imagine a scenario where the client sends a batch with 100 messages, the server receives it, turns it into Archived form, updates metadata fields, caches/persists it and sends an ack back to the client. The client sends a fetch request for 10 messages, the server receives the request, peeks into the cache, finds our batch of 100 messages and here is the tricky bit.
-
+After a further evaluation of `IggyBatch`, we found that while it was good enough, there was still room for improvement.
+Imagine a scenario where the client sends a batch with 100 messages, the server receives it, turns it into Archived form, updates metadata fields, caches/persists it and sends an ack back to the client. The client sends a fetch request for 10 messages, the server receives the request, peeks into the cache, finds our batch of 100 messages and here is the tricky bit -
 We would like to send back **only a slice of the cached data** (10 messages instead of 100), but due to rkyv's memory layout, one cannot simply take a slice of those bytes and perform the transformation into its Archived form.
 
 So rather than deriving rkyv's traits to `IggyBatch`, we decided to refine our approach by working at the individual message level.
@@ -102,7 +101,7 @@ This approach allows us to combine the flexibility of solution with length prefi
 
 ## Benchmarks
 
-Now the part that all of you are probably most interested in - benchmarks.
+Now the part that all of you are probably most interested in - le benchmarks.
 
 Those results come from an **AWS i3en.3xlarge** instance
 
