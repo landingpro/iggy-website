@@ -11,7 +11,7 @@ date: 2025-05-08
 ---
 ## Introduction
 
-Apache Iggy considers **performance as one of its core principles**. We take pride in being blazingly fast, as proof of that, we have made **[benchmarking first-class citizen](http://localhost:3000/blogs/2025/02/17/transparent-benchmarks)**.
+Apache Iggy considers **performance as one of its core principles**. We take pride in being blazingly fast, as proof of that, we have made **[benchmarking first-class citizen](https://iggy.apache.org/blogs/2025/02/17/transparent-benchmarks)**.
 
 **Zero-copy schema** was a natural next step in our high-performance journey, it was part of our roadmap for quite a while, until the day we have **[finally merged it](https://github.com/apache/iggy/pull/1679)**. In this blog post, we will share our path to implementing it.
 
