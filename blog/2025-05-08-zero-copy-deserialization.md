@@ -2,11 +2,11 @@
 title: Zero-copy (de)deserialization
 authors:
   - name: Grzegorz Koszyk
-    title: Apache Iggy Core Developer
+    title: Apache Iggy PPMC Member
     url: https://github.com/numinnex
     image_url: https://github.com/numinnex.png
   - name: Hubert Gruszecki
-    title: Apache Iggy Core Developer
+    title: Apache Iggy PPMC Member
     url: https://github.com/hubcio
     image_url: https://github.com/hubcio.png
 tags: []
