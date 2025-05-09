@@ -114,11 +114,20 @@ Those results come from an **AWS i3en.3xlarge** instance
 ![image](/zero-copy-deserialization/no_zero_copy_producer.png)
 ![image](/zero-copy-deserialization/no_zero_copy_consumer.png)
 
+| No zero-copy      |   tput   |   p95   |   p99   |   avg   |
+| :---------------- | :------: | :-----: | :-----: | :-----: |
+| Producer          |  1.7GB/s |  3.48ms | 4.23ms  | 2.39ms
+| Consumer          |  2.1GB/s |  2.53ms | 2.93ms  | 1.90ms
+
 **After**
 
 ![image](/zero-copy-deserialization/zero_copy_producer.png)
 ![image](/zero-copy-deserialization/zero_copy_consumer.png)
 
+| Zero-copy         |   tput   |   p95   |   p99   |   avg   |
+| :---------------- | :------: | :-----: | :-----: | :-----: |
+| Producer          |  2.4GB/s |  2.33ms | 2.59ms  | 1.63ms
+| Consumer          |  4.0GB/s |  1.21ms | 1.46ms  | 0.98ms
 
 
 **Almost 2 times higher throughput for reads (2,1GBps vs 4GBps), 40% higher throughput for writes (2,4GBps vs 1,7GBps), 2x better p99 latencies for reads (2.93ms vs 1,46 ms) and 63% better p99 latencies for writes (4.23ms vs 2.59ms).**
