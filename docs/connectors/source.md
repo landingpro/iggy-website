@@ -77,7 +77,7 @@ Let's implement the example source connector, which will simply generate the N r
 
 Additionally, our source connector will have its own state, which can be used e.g. to track the overall progress or store some relevant information when producing the data from the actual external sources or tooling.
 
-Keep in mind, that the produces messages will be sent further to the specified stream, but it's already the responsibility of the runtime to handle the delivery.
+Keep in mind, that the produced messages will be sent further to the specified stream, however it's already the responsibility of the runtime to handle the delivery.
 
 Also, when implementing the source connector, make sure to use the `source_connector!` macro to expose the FFI interface and allow the connector runtime to register the source with the runtime.
 
