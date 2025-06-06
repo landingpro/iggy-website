@@ -9,18 +9,23 @@ sidebar_position: 4
 
 Sink connectors are responsible for writing data from Iggy streams to external systems or destinations. They provide a way to integrate Apache Iggy with various data sources and destinations, enabling seamless data flow and processing.
 
-The sink is represented by the single `Sink` trait, which defines the basic interface for all source connectors. It provides methods for initializing the sink, writing data to external destonation, and closing the sink.
+The sink is represented by the single `Sink` trait, which defines the basic interface for all sink connectors. It provides methods for initializing the sink, writing data to external destination, and closing the sink.
 
 ```rust
 #[async_trait]
-pub trait Source: Send + Sync {
-    /// Invoked when the source is initialized, allowing it to perform any necessary setup.
+pub trait Sink: Send + Sync {
+    /// Invoked when the sink is initialized, allowing it to perform any necessary setup.
     async fn open(&mut self) -> Result<(), Error>;
 
-    /// Invoked every time a batch of messages is produced to the configured stream and topic.
-    async fn poll(&self) -> Result<ProducedMessages, Error>;
+    /// Invoked every time a batch of messages is received from the configured stream(s) and topic(s).
+    async fn consume(
+        &self,
+        topic_metadata: &TopicMetadata,
+        messages_metadata: MessagesMetadata,
+        messages: Vec<ConsumedMessage>,
+    ) -> Result<(), Error>;
 
-    /// Invoked when the source is closed, allowing it to perform any necessary cleanup.
+    /// Invoked when the sink is closed, allowing it to perform any necessary cleanup.
     async fn close(&mut self) -> Result<(), Error>;
 }
 ```
@@ -120,7 +125,7 @@ impl StdoutSink {
 }
 ```
 
-And we can invoke the expected macro to expose the FFI interface and allow the connector runtime to register the sink within the runtime.
+We can invoke the expected macro to expose the FFI interface and allow the connector runtime to register the sink within the runtime.
 
 ```rust
 sink_connector!(StdoutSink);

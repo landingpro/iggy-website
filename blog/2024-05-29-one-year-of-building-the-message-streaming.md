@@ -57,7 +57,7 @@ And at the same time, we've been experimenting a lot with some fancy stuff, whic
 
 ## Tooling
 
-The core message streaming server and multiple SDKs might sound as the most important parts of the whole ecosystem, but let's not forget about the **management tools**. How to quickly connect to the the server, create new topics, validate if the messages are being sent correctly, change the user permissions or check the node statistics?
+The core message streaming server and multiple SDKs might sound as the most important parts of the whole ecosystem, but let's not forget about the **management tools**. How to quickly connect to the server, create new topics, validate if the messages are being sent correctly, change the user permissions or check the node statistics?
 
 This is where our **[CLI](https://github.com/apache/iggy/tree/master/core/cli) and [Web UI](https://github.com/iggy-rs/iggy-web-ui) come in handy**. If you're a fan of working with the terminal and used to the great developer experience, you'll find our CLI a joy to work with.
 
