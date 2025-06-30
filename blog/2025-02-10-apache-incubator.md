@@ -4,7 +4,7 @@ authors:
   - name: Piotr Gankiewicz
     title: Apache Iggy founder
     url: https://github.com/spetz
-    image_url: https://github.com/spetz.png
+    # image_url: https://github.com/spetz.png
 tags: []
 hide_table_of_contents: false
 date: 2025-02-10
