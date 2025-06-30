@@ -5,10 +5,16 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
+<<<<<<< Updated upstream
   title: "Hyper-Efficient Message Streaming at Laser Speed.",
   tagline:
     "Apache Iggy (Incubating) is a persistent message streaming platform written in Rust, supporting QUIC, TCP and HTTP transport protocols, capable of processing millions of messages per second.",
   favicon: "img/favicon.ico",
+=======
+  title: 'Hyper-Efficient Message Streaming at Laser Speed.',
+  tagline: 'Apache Iggy (Incubating) is a persistent message streaming platform written in Rust, supporting QUIC, TCP and HTTP transport protocols, capable of processing millions of messages per second.',
+  favicon: 'img/favicon.png',
+>>>>>>> Stashed changes
 
   // Set the production url of your site here
   url: "https://iggy.apache.org",
@@ -72,13 +78,28 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
+<<<<<<< Updated upstream
     image: "img//apache-iggy-light-bg0.5x.png",
+=======
+    colorMode: {
+      disableSwitch: true,       // 👈 hides the toggle UI
+      defaultMode: 'light',      // or 'dark', depending on your choice
+      respectPrefersColorScheme: false,
+    },
+    image: 'img//apache-iggy-light-bg0.5x.png',
+>>>>>>> Stashed changes
     navbar: {
       title: "",
       logo: {
+<<<<<<< Updated upstream
         alt: "Apache Iggy",
         src: "img/apache-iggy-light-bg0.5x.png",
         srcDark: "img/apache-iggy0.5x.png",
+=======
+        alt: 'Apache Iggy',
+        srcDark: 'img/apache-iggy-light-bg0.5x.png',
+        src: 'img/apache-iggy0.5x.png',
+>>>>>>> Stashed changes
       },
       items: [
         {
@@ -104,9 +125,15 @@ const config: Config = {
           position: "left",
         },
         {
+<<<<<<< Updated upstream
           href: "https://github.com/apache/iggy",
           label: "GitHub",
           position: "right",
+=======
+          href: 'https://github.com/apache/iggy',
+          label: 'GitHub ⭐ 2.7K+ ',
+          position: 'right',
+>>>>>>> Stashed changes
         },
         {
           type: "dropdown",
@@ -137,7 +164,11 @@ const config: Config = {
       ],
     },
     footer: {
+<<<<<<< Updated upstream
       style: "dark",
+=======
+      style: 'light',
+>>>>>>> Stashed changes
       links: [
         {
           title: "Docs",
@@ -177,8 +208,13 @@ const config: Config = {
               to: "/blogs",
             },
             {
+<<<<<<< Updated upstream
               label: "GitHub",
               href: "https://github.com/iggy-rs/iggy",
+=======
+              label: 'GitHub',
+              href: 'https://github.com/apache/iggy',
+>>>>>>> Stashed changes
             },
             {
               href: "https://benchmarks.iggy.rs",
@@ -188,9 +224,9 @@ const config: Config = {
         },
       ],
       copyright: `<div>Apache Iggy is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</div>
-<div>
+<div><br />
 Copyright © 2025 The Apache Software Foundation, Licensed under the Apache License, Version 2.0.</div>
-<div>
+<div><br />
 Apache®, the names of Apache projects, and the feather logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.</div>`,
     },
     prism: {
