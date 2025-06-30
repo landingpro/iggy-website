@@ -5,19 +5,19 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
-import heroImage from '@site/static/img/hero-main.webp';
+// import heroImage from '@site/static/img/hero-main.webp';
 
-import '../css/iggywebsite.css';
+// import '../css/iggywebsite.css';
 // import '../css/components.css';
-import '../css/normalize.css';
+// import '../css/normalize.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const backgroundStyle = {
-    backgroundImage: `url(${heroImage}), radial-gradient(circle closest-side at 35% 48%, #ff910314, #070c1700 60%), radial-gradient(circle closest-side at 68% 52%, #111d35, #070c1700 63%), radial-gradient(circle farthest-side at 20% 0%, #0e1f42, var(--bg-1) 21%)`
-  };
+  // const backgroundStyle = {
+  //   backgroundImage: `url(${heroImage}), radial-gradient(circle closest-side at 35% 48%, #ff910314, #070c1700 60%), radial-gradient(circle closest-side at 68% 52%, #111d35, #070c1700 63%), radial-gradient(circle farthest-side at 20% 0%, #0e1f42, var(--bg-1) 21%)`
+  // };
   return (
-    <div className="hero-section" style={backgroundStyle}>
+    <div className="hero-section">
       <div className="container on-hero">
         <div className="wrapper-m">
           <div className="hero-title-centered s-m-b-0">
