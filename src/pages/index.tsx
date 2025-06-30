@@ -52,13 +52,12 @@ function HomepageHeader() {
                     <a href="/docs/introduction/getting-started" className="button medium on-hero w-inline-block">
                       <div className="button-content-wrapper">
                         <div className="button-text dark on-hero">Get started</div>
-                        {/* <div className="material-icons icon-right">open_in_new</div> */}
                       </div>
                     </a>
                     <p className="body-text s on-hero">Run locally in 2 minutes<br />Cargo install, single binary<br /></p>
                   </div>
                   <div className="feature-block centered">
-                    <a href="#" className="button medium ghost secondary w-inline-block">
+                    <a href="https://github.com/apache/iggy" target="_blank" className="button medium ghost secondary w-inline-block">
                       <div className="button-content-wrapper">
                         <img width="26" height="Auto" alt="gh-icon-orange" src="/img/gh-icon-orange.svg" loading="lazy" className="github-icon-on-hero" />
                         <div className="button-text ghost on-hero">View on GitHub</div>
