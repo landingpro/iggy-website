@@ -80,7 +80,7 @@ function Feature({title, Svg, description}: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export function HomepageFeaturesOld(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
@@ -91,5 +91,64 @@ export default function HomepageFeatures(): ReactNode {
         </div>
       </div>
     </section>
+
+  );
+}
+
+export default function HomepageFeatures(): ReactNode {
+  return (
+    <div className="build-for-performance">
+      <div className="container">
+        <div className="wrapper-m">
+          <div className="section-title centered">
+            <div className="tagline hidden">Get SystemFlow</div>
+            <h2 className="heading l">Built for <span className="c-t-primary-60">performance</span></h2>
+            <p className="body-text m">Apache Iggy (Incubating) is designed from the ground up to deliver <span className="text-span">exceptional performance, reliability, and developer experience</span> for modern message streaming workloads.</p>
+          </div>
+          <div className="w-layout-grid l-g-4-col features">
+            <div className="feature-block tile-up">
+              <div className="material-icons feature-icon-small">bolt</div>
+              <h3 className="heading xxs">Ultra-High Performance<br/></h3>
+              <p className="body-text s feature">Process millions of messages per second with predictable low latency thanks to Rust&#x27;s zero-cost abstractions and no garbage collection.<br/></p>
+            </div>
+            <div className="feature-block tile-up">
+              <div className="material-icons feature-icon-small">cloud_sync</div>
+              <h3 className="heading xxs">Zero-Copy Serialization</h3>
+              <p className="body-text s">Custom zero-copy (de)serialization for improved performance and reduced memory usage, working directly with binary data.<br/><br/></p>
+            </div>
+            <div className="feature-block tile-up">
+              <div className="material-icons feature-icon-small">dns</div>
+              <h3 className="heading xxs">Multiple Transport Protocols<br/></h3>
+              <p className="body-text s">Support for QUIC, TCP, and HTTP protocols with TLS encryption, giving you flexibility in how clients connect.</p>
+            </div>
+            <div className="feature-block tile-up">
+              <div className="material-icons feature-icon-small">code</div>
+              <h3 className="heading xxs">Multi-Language SDKs<br/></h3>
+              <p className="body-text s">Client libraries available for Rust, C#, Java, Go, Python, Node.js, C++, and Elixir with more languages coming.<br/></p>
+            </div>
+            <div className="feature-block tile-down first">
+              <div className="material-icons feature-icon-small">group</div>
+              <h3 className="heading xxs">Consumer Groups &amp; Partitioning<br/></h3>
+              <p className="body-text s">Built-in support for consumer groups, partitioning, and horizontal scaling across connected clients.<br/></p>
+            </div>
+            <div className="feature-block tile-down">
+              <div className="material-icons feature-icon-small">verified_user</div>
+              <h3 className="heading xxs">Security &amp; Authentication<br/></h3>
+              <p className="body-text s">User authentication and authorization with granular permissions, Personal Access Tokens, and optional data encryption.<br/>‍<br/></p>
+            </div>
+            <div className="feature-block tile-down">
+              <div className="material-icons feature-icon-small">network_check</div>
+              <h3 className="heading xxs">Built-in Monitoring<br/></h3>
+              <p className="body-text s">OpenTelemetry logs &amp; traces, Prometheus metrics, and built-in benchmarking tools for performance monitoring.<br/></p>
+            </div>
+            <div id="w-node-_94c4313e-fb50-e882-0de0-ff04e3b099bb-3bca6c21" className="feature-block tile-down">
+              <div className="material-icons feature-icon-small">account_tree</div>
+              <h3 className="heading xxs">Multi-Tenant Support<br/></h3>
+              <p className="body-text s">Stream abstraction for multi-tenancy, message retention policies, and S3-compatible backup storage.<br/></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

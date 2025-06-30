@@ -5,16 +5,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-<<<<<<< Updated upstream
   title: "Hyper-Efficient Message Streaming at Laser Speed.",
   tagline:
     "Apache Iggy (Incubating) is a persistent message streaming platform written in Rust, supporting QUIC, TCP and HTTP transport protocols, capable of processing millions of messages per second.",
-  favicon: "img/favicon.ico",
-=======
-  title: 'Hyper-Efficient Message Streaming at Laser Speed.',
-  tagline: 'Apache Iggy (Incubating) is a persistent message streaming platform written in Rust, supporting QUIC, TCP and HTTP transport protocols, capable of processing millions of messages per second.',
-  favicon: 'img/favicon.png',
->>>>>>> Stashed changes
+  favicon: "img/favicon.png",
 
   // Set the production url of your site here
   url: "https://iggy.apache.org",
@@ -78,28 +72,18 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-<<<<<<< Updated upstream
-    image: "img//apache-iggy-light-bg0.5x.png",
-=======
     colorMode: {
       disableSwitch: true,       // 👈 hides the toggle UI
       defaultMode: 'light',      // or 'dark', depending on your choice
       respectPrefersColorScheme: false,
     },
-    image: 'img//apache-iggy-light-bg0.5x.png',
->>>>>>> Stashed changes
+    image: "img//apache-iggy-light-bg0.5x.png",
     navbar: {
       title: "",
       logo: {
-<<<<<<< Updated upstream
         alt: "Apache Iggy",
-        src: "img/apache-iggy-light-bg0.5x.png",
-        srcDark: "img/apache-iggy0.5x.png",
-=======
-        alt: 'Apache Iggy',
-        srcDark: 'img/apache-iggy-light-bg0.5x.png',
-        src: 'img/apache-iggy0.5x.png',
->>>>>>> Stashed changes
+        srcDark: "img/apache-iggy-light-bg0.5x.png",
+        src: "img/apache-iggy0.5x.png",
       },
       items: [
         {
@@ -125,15 +109,9 @@ const config: Config = {
           position: "left",
         },
         {
-<<<<<<< Updated upstream
           href: "https://github.com/apache/iggy",
-          label: "GitHub",
+          label: "GitHub ⭐ 2.7K+",
           position: "right",
-=======
-          href: 'https://github.com/apache/iggy',
-          label: 'GitHub ⭐ 2.7K+ ',
-          position: 'right',
->>>>>>> Stashed changes
         },
         {
           type: "dropdown",
@@ -164,11 +142,7 @@ const config: Config = {
       ],
     },
     footer: {
-<<<<<<< Updated upstream
-      style: "dark",
-=======
-      style: 'light',
->>>>>>> Stashed changes
+      style: "light",
       links: [
         {
           title: "Docs",
@@ -208,13 +182,8 @@ const config: Config = {
               to: "/blogs",
             },
             {
-<<<<<<< Updated upstream
               label: "GitHub",
-              href: "https://github.com/iggy-rs/iggy",
-=======
-              label: 'GitHub',
-              href: 'https://github.com/apache/iggy',
->>>>>>> Stashed changes
+              href: "https://github.com/apache/iggy",
             },
             {
               href: "https://benchmarks.iggy.rs",
