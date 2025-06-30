@@ -51,7 +51,7 @@ function HomepageHeader() {
                   <div className="feature-block centered">
                     <a href="/docs/introduction/getting-started" className="button medium on-hero w-inline-block">
                       <div className="button-content-wrapper">
-                        <div className="button-text dark on-hero">Get started</div>
+                        <div className="button-text dark on-hero">Get Started</div>
                       </div>
                     </a>
                     <p className="body-text s on-hero">Run locally in 2 minutes<br />Cargo install, single binary<br /></p>
