@@ -28,7 +28,7 @@ function HomepageHeader() {
             <div className="w-layout-grid l-g-4-col hero-features-grid">
               <div className="feature-block centered subheadline-features">
                 <h3 className="heading m on-hero linear-gradient-1">Millions</h3>
-                <p className="body-text m s-m-b-0 subheadline-features">Messages/Second</p>
+                <p className="body-text m s-m-b-0 subheadline-features">Messages/Second/Node</p>
               </div>
               <div className="feature-block centered subheadline-features">
                 <h3 className="heading m on-hero linear-gradient-2"> &lt; 1 ms</h3>
@@ -80,7 +80,7 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`Apache Iggy (Incubating)`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
