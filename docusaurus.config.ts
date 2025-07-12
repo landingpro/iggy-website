@@ -111,7 +111,7 @@ const config: Config = {
         },
         {
           href: "https://github.com/apache/iggy",
-          label: "GitHub ⭐ 2.7K+",
+          label: "GitHub ⭐ 2.8K",
           position: "right",
         },
         {
