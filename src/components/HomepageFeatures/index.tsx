@@ -60,7 +60,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/FullyOpenSourced.svg').default,
     description: (
       <>
-        Thanks to the power of community, we can constantly improve Iggy and support multiple programming languages SDKs.
+        Thanks to the power of community, we can constantly improve Apache Iggy and support multiple programming languages SDKs.
       </>
     ),
   },
