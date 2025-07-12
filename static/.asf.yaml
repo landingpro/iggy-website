@@ -21,8 +21,10 @@ publish:
 # Staging and publishing profile:
 staging:
   profile: ~
-  whoami: asf-staging
-  url: https://iggy.staged.apache.org/
+  whoami: asf-staged-site
+
+publish:
+  whoami: asf-site
 
 notifications:
   commits: commits@iggy.apache.org

@@ -30,6 +30,7 @@ jobs:
       - name: Copy ASF config
         run: |
           cp .asf.yaml ./build/.asf.yaml  # Ensure .asf.yaml is inside build directory
+          cp .asf.yaml ./build/.asf.yaml  # Ensure .asf.yaml is inside build directory
 
       # Publish to asf-staging for development/staging
       - name: Publish Iggy Website to asf-staging
