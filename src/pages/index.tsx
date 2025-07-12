@@ -81,7 +81,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Apache Iggy (Incubating)`}
-      description="Description will go into a meta tag in <head />">
+      description="Apache Iggy, A blazing-fast, reliable, and scalable message streaming platform written in Rust and built for modern distributed systems. Process millions of messages per node with unparalleled efficiency.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
