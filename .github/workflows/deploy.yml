@@ -12,18 +12,24 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for accurate commits
 
       - name: Install Dependencies
         run: |
           npm install
 
+      - name: Clean Build Directory
+        run: |
+          rm -rf ./build
+  
       - name: Build Apache Iggy Website
         run: |
-          npm run build
+          npm run build --clean
 
       - name: Copy ASF config
         run: |
-          cp .asf.yaml build/.asf.yaml  # Ensure .asf.yaml is inside build directory
+          cp .asf.yaml ./build/.asf.yaml  # Ensure .asf.yaml is inside build directory
 
       # Publish to asf-site for production
       - name: Publish Iggy Website to asf-site
@@ -31,5 +37,10 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
           publish_branch: asf-site
+          publish_dir: ./build
+          destination_dir: ./
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy website from main branch'

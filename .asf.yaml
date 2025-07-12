@@ -22,13 +22,14 @@ collaborators:
   - username: landingpro
     permission: write
   
+publish:
+  whoami: asf-site
+
 # Staging and publishing profile:
 staging:
   profile: ~
-  whoami: asf-staged-site
-
-publish:
-  whoami: asf-site
+  whoami: asf-staging
+  url: https://iggy.staged.apache.org/
 
 notifications:
   commits: commits@iggy.apache.org
