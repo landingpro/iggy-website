@@ -24,7 +24,7 @@ collaborators:
   
 # Staging and publishing profile:
 staging:
-  profile: ~
+  profile: website
   whoami: asf-staged-site
   url: https://iggy.staged.apache.org
 
