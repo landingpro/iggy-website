@@ -1,0 +1,35 @@
+name: Deploy Apache Iggy Staging Website
+
+on:
+  push:
+    branches:
+      - staging  # Runs when you push to the staging branch
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Build Apache Iggy Website
+        run: |
+          npm run build
+
+      - name: Copy ASF config
+        run: |
+          cp .asf.yaml build/.asf.yaml  # Ensure .asf.yaml is inside build directory
+
+      # Publish to asf-staged-site for development/staging
+      - name: Publish Iggy Website to asf-staged-site
+        if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: asf-staged-site
