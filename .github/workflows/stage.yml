@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Apache Iggy Website
         run: |
-          npm run build -- --clean
+          npm run build --clean
 
       - name: Copy ASF config
         run: |
