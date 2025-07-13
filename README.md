@@ -46,3 +46,6 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 Production Website: iggy.apache.org is published from `asf-site` branch
 Staging Website: iggy.staged.apache.org is published from `asf-staging` branch
+
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/apache/iggy)
