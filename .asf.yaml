@@ -17,10 +17,9 @@ github:
     squash:  true
     merge:   false
     rebase:  false
-
-collaborators:
-  - username: landingpro
-    permission: write
+  
+  collaborators:
+    - landingpro
   
 publish:
   whoami: asf-site
@@ -29,7 +28,6 @@ publish:
 staging:
   profile: ~
   whoami: asf-staging
-  url: https://iggy.staged.apache.org/
 
 notifications:
   commits: commits@iggy.apache.org
